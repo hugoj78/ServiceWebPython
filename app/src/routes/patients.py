@@ -6,6 +6,7 @@ from typing import List
 from starlette.status import HTTP_204_NO_CONTENT
 from sqlalchemy import func, select
 from cryptography.fernet import Fernet
+from fastapi_simple_security import api_key_security
 
 router = APIRouter(
     prefix="/patients",
@@ -17,6 +18,7 @@ f = Fernet(key)
 
 @router.get(
     "",
+    dependencies=[Depends(api_key_security)],
     response_model=List[Patient],
     description="Get a list of all patients",
 )
@@ -25,6 +27,7 @@ def get_patients():
 
 @router.get(
     "/{id}",
+    dependencies=[Depends(api_key_security)],
     response_model=Patient,
     description="Get a single patients by Id",
 )
@@ -34,6 +37,7 @@ def get_patients(id: str):
 
 @router.post(
     "",
+    dependencies=[Depends(api_key_security)],
     response_model=Patient, 
     description="Create a new Patient")
 def create_patient(patient: Patient):
@@ -44,6 +48,7 @@ def create_patient(patient: Patient):
 
 @router.put(
     "/{id}",
+    dependencies=[Depends(api_key_security)],
     response_model=Patient, 
     description="Update a patient by Id"
 )
@@ -58,6 +63,7 @@ def update_patient(patient: Patient, id: int):
 
 @router.delete(
     "/{id}",
+    dependencies=[Depends(api_key_security)],
     status_code=HTTP_204_NO_CONTENT
 )
 def delete_patient(id: int):

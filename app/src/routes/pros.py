@@ -6,6 +6,7 @@ from typing import List
 from starlette.status import HTTP_204_NO_CONTENT
 from sqlalchemy import func, select
 from cryptography.fernet import Fernet
+from fastapi_simple_security import api_key_security
 
 router = APIRouter(
     prefix="/pros",
@@ -17,6 +18,7 @@ f = Fernet(key)
 
 @router.get(
     "",
+    dependencies=[Depends(api_key_security)],
     response_model=List[Pro],
     description="Get a list of all professionals",
 )
@@ -25,6 +27,7 @@ def get_pros():
 
 @router.get(
     "/{id}",
+    dependencies=[Depends(api_key_security)],
     response_model=Pro,
     description="Get a single professional by Id",
 )
@@ -34,6 +37,7 @@ def get_pros(id: str):
 
 @router.get(
     "/{speciality}/{city}",
+    dependencies=[Depends(api_key_security)],
     response_model=List[Pro],
     description="Get a single professional by speciality and city",
 )
@@ -43,6 +47,7 @@ def get_pros_by_speciality_and_city(speciality: str, city: str):
 
 @router.post(
     "",
+    dependencies=[Depends(api_key_security)],
     response_model=Pro, 
     description="Create a new Pro")
 def create_pro(pro: Pro):
@@ -53,6 +58,7 @@ def create_pro(pro: Pro):
 
 @router.put(
     "/{id}",
+    dependencies=[Depends(api_key_security)],
     response_model=Pro, 
     description="Update a professional by Id"
 )
@@ -67,6 +73,7 @@ def update_pro(pro: Pro, id: int):
 
 @router.delete(
     "/{id}",
+    dependencies=[Depends(api_key_security)],
     status_code=HTTP_204_NO_CONTENT
 )
 def delete_pro(id: int):

@@ -3,6 +3,7 @@ from src.routes.health import router as health
 from src.routes.pros import router as pro
 from src.routes.patients import router as patient
 from config.openapi import tags_metadata
+from fastapi_simple_security import api_key_router
 import os
 
 app = FastAPI(
@@ -15,3 +16,4 @@ app = FastAPI(
 app.include_router(health)
 app.include_router(pro)
 app.include_router(patient)
+app.include_router(api_key_router, prefix="/auth", tags=["_auth"])
