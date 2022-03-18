@@ -1,4 +1,4 @@
-# EGU Hugo-Jean : Web Service 🚀
+# 🚀 EGU Hugo-Jean : Web Service 🚀
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
