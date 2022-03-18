@@ -1,3 +1,9 @@
-uvicorn main:app --reload
+EGU Hugo-Jean : Web Service
 
-pip install -r requirements.txt
+```
+docker compose up db
+```
+
+```
+docker compose up web
+```
