@@ -1,15 +1,15 @@
-# EGU Hugo-Jean : Web Service
+# EGU Hugo-Jean : Web Service 🚀
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
-API pour cours Web Service
+API pour cours Web Service 💻
 
-### Pre requis
+### Pre requis 🐳
 
 - docker installed
 - docker-compose
 
-### Installation
+### Installation 🔌
 
 Pour lancer la base de données
 ```
@@ -21,5 +21,5 @@ Pour lancer l'API
 docker-compose up web
 ```
 
-Ouvrir votre browser à l'url suviante : http://127.0.0.1:8082/docs pour avoir accès au swagger
+Ouvrir votre browser 🌏 à l'url suviante : http://127.0.0.1:8082/docs pour avoir accès au swagger
 
