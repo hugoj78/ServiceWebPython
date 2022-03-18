@@ -11,14 +11,10 @@ API pour cours Web Service 💻
 
 ### Installation 🔌
 
-Pour lancer la base de données
-```
-docker-compose up db
-```
+Pour lancer la base de données et l'API
 
-Pour lancer l'API
 ```
-docker-compose up web
+docker-compose up 
 ```
 
 Ouvrir votre browser 🌏 à l'url suviante : http://127.0.0.1:8082/docs pour avoir accès au swagger
