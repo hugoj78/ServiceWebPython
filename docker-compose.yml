@@ -14,6 +14,8 @@ services:
       - '3306'
     volumes:
       - my-db:/var/lib/mysql
+    networks:
+      - default
   web:
     build: .
     environment:
@@ -21,5 +23,14 @@ services:
       FASTAPI_SIMPLE_SECURITY_SECRET: "ILFAUTMETTRE20AHUGOJEANETGUILLAUME"
     ports:
       - 8082:8082
+    depends_on:
+      - "db"
+    networks:
+      - default
+      - outside
 volumes:
   my-db:
+networks:
+  outside:
+    external:
+      name: servicewebynov_default
