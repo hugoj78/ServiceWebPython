@@ -65,7 +65,7 @@ def create_pro(pro: Pro):
 def update_pro(pro: Pro, id: int):
     conn.execute(
         pros.update()
-        .values(id_pro=pro.id_pro, url=pro.url, order=pro.order)
+        .values(id=pro.id, name=pro.name, city=pro.city, speciality=pro.speciality)
         .where(pros.c.id == id)
     )
     return conn.execute(pros.select().where(pros.c.id == id)).first()

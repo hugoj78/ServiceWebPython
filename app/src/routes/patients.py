@@ -55,7 +55,7 @@ def create_patient(patient: Patient):
 def update_patient(patient: Patient, id: int):
     conn.execute(
         patients.update()
-        .values(id_patient=patient.id_patient, id_pro=patient.id_pro, id_patient=patient.id_patient)
+        .values(id=patient.id, id_pro=patient.id_pro, id_patient=patient.id_patient)
         .where(patients.c.id == id)
     )
     return conn.execute(patients.select().where(patients.c.id == id)).first()
